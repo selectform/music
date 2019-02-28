@@ -2,7 +2,7 @@
 <div id="home">
     <header class="head">
 	<!-- 顶部横条 -->
-		<span @click="menue">
+		<span @click="menut">
 			<i class="iconfont">&#xe74c;</i>
 		</span>
 		<div>
@@ -20,10 +20,15 @@
 			<i class="iconfont">&#xe62c;</i>
 		</span>
 	</header>
-	<div v-show="ishow">
-		<menus :isno="ishow" @give="get"></menus>
+	<div>
+		<transition name="abs">
+			<div class="menu" @click.self="offMenu" v-show="ishow">
+				<div class="menu1">
+					<menus></menus>
+				</div>
+			</div>
+		</transition>
 	</div>
-	
 	
 </div> 
 </template>
@@ -40,12 +45,13 @@ export default {
 		'menus': Menus
 	},
 	methods: {
-		menue() {
+		menut() {
+			console.log('开');
 			this.ishow = true;
-			console.log('父menue',this.ishow);
 		},
-		get (data) {
-			this.ishow = data;
+		offMenu() {
+			this.ishow = false;
+			console.log('关');
 		}
 	}
 }
@@ -76,6 +82,40 @@ export default {
 			display: flex;
 			justify-content: space-around;
 		}
+	}
+	// 菜单样式
+	.menu {
+		position: absolute;
+		z-index: 99;
+		left: 0;
+		top: 0;
+		width: 100%;
+		min-height: 6.67rem;
+		background: rgba(0,0,0,0.4);
+		
+	}
+	.menu1 {
+		width: 80%;
+		height: 6.67rem;
+		background: #fff;
+	}
+	.abs-enter {//进入
+		transform: translate(-100%,0);
+	}
+	.abs-enter-to {//进入结束
+		transform: translate(0,0);
+	}
+	.abs-enter-active {//进入过程
+		transition: all 0.8s;
+	}
+	.abs-leave {
+		transform: translate(0,0);
+	}
+	.abs-leave-to {
+		transform: translate(-100%,0);
+	}
+	.abs-leave-active {
+		transition: all 0.8s;
 	}
 </style>
 

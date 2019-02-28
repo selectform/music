@@ -1,13 +1,9 @@
 <template>
-	<div class="menued" @click.self="mous" v-show="isno">
-		<div class="menus">
-			<transition-group tap="p" name="mouse">
-				<div class="menus1" key="ss">
-					<p>登录网易云音乐</p>
-					<p>手机电脑多端同步，尽享海量高品质音乐</p>
-					<span>立即登录</span>
-				</div>
-			</transition-group>
+	<div>
+		<div class="menus1">
+			<p>登录网易云音乐</p>
+			<p>手机电脑多端同步，尽享海量高品质音乐</p>
+			<span>立即登录</span>
 		</div>
 	</div>
 </template>
@@ -23,29 +19,11 @@ export default {
 		}
 	},
 	methods: {
-		mous() {
-			this.ishow = this.isno;
-			this.$emit('give',this.show);
-		}
 	}
 }
 </script>
 
 <style lang="scss">
-	.menued {
-		position: fixed;
-		z-index: 99;
-		width: 100%;
-		height: 6.67rem;
-		background: rgba(0,0,0,0.3);
-		left: 0;
-		top: 0;
-	}
-	.menus {
-		width: 80%;
-		height: 100%;
-		background: #fff;
-	}
 	.menus1 {
 		font-size: 12px;
 		height: 1.6rem;
@@ -69,13 +47,5 @@ export default {
 			font-size: 14px;
 		}
 	}
-	.mouse-enter {
-		transform: translate(-100%,0);
-	}
-	.mouse-enter-active {
-		transition: all 3s;
-	}
-	.mouse-enter-to {
-		transform: translate(0,0);
-	}
+	
 </style>
