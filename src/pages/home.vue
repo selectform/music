@@ -46,7 +46,6 @@ export default {
 		},
 		get (data) {
 			this.ishow = data;
-			console.log('父get',this.ishow);
 		}
 	}
 }

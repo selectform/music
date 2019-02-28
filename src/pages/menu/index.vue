@@ -1,13 +1,13 @@
 <template>
 	<div class="menued" @click.self="mous" v-show="isno">
 		<div class="menus">
-			<transition name="mouse">
-				<div class="menus1">
+			<transition-group tap="p" name="mouse">
+				<div class="menus1" key="ss">
 					<p>登录网易云音乐</p>
 					<p>手机电脑多端同步，尽享海量高品质音乐</p>
 					<span>立即登录</span>
 				</div>
-			</transition>
+			</transition-group>
 		</div>
 	</div>
 </template>
@@ -18,14 +18,14 @@ export default {
 	name: 'menus',
 	data() {
 		return {
-			ishow: null
+			ishow: null,
+			ss: '123'
 		}
 	},
 	methods: {
 		mous() {
-			console.log('isno',this.isno);
-			 this.ishow = this.isno;
-			 this.$emit('give',this.show);
+			this.ishow = this.isno;
+			this.$emit('give',this.show);
 		}
 	}
 }
@@ -73,9 +73,9 @@ export default {
 		transform: translate(-100%,0);
 	}
 	.mouse-enter-active {
-		transition: all 1.5s;
+		transition: all 3s;
 	}
-	.mouse-leave {
+	.mouse-enter-to {
 		transform: translate(0,0);
 	}
 </style>
