@@ -1,0 +1,20 @@
+@charset "utf-8";
+html,body{background:#f0f0f0;color:#505050;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}
+body,button,input,select,textarea {font:14px \5b8b\4f53,'Helvetica Neue',Arial,'Liberation Sans',FreeSans,'Hiragino Sans GB',sans-serif\"Microsoft YaHei"\"微软雅黑";}
+h1{font-size:24px;}
+h2{font-size:22px;}
+h3{font-size:18px;}
+
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}
+fieldset,img {border:none;}
+ol,ul,li {list-style:none;}
+i {font-style: nomal;}
+b {font-weight: 550;}
+u {text-decoration: none;}
+ins,a,a:hover {text-decoration:none;}
+a:focus,*:focus {outline:none;}
+.clear:after {content:"";clear:both;display:block;width: 0;overflow:hidden;visibility:hidden;}
+.fl{float: left;}
+.fr{float: right;}
+html,body {font-size: 100px;}

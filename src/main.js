@@ -6,7 +6,7 @@ import MuseUI from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
 Vue.use(MuseUI);
 
-
+import './components/style/style.css';
 
 
 Vue.config.productionTip = false
