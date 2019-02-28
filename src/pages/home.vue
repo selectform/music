@@ -2,7 +2,7 @@
 <div id="home">
     <header class="head">
 	<!-- 顶部横条 -->
-		<span>
+		<span @click="menue">
 			<i class="iconfont">&#xe74c;</i>
 		</span>
 		<div>
@@ -20,8 +20,8 @@
 			<i class="iconfont">&#xe62c;</i>
 		</span>
 	</header>
-	<div class="menued">
-		<menus></menus>
+	<div v-show="ishow">
+		<menus :isno="ishow" @give="get"></menus>
 	</div>
 	
 	
@@ -33,17 +33,28 @@ export default {
     name: 'home',
     data() {
         return {
-            cc: '主页',
+            ishow: false
         }
     },
 	components: {
 		'menus': Menus
+	},
+	methods: {
+		menue() {
+			this.ishow = true;
+			console.log('父menue',this.ishow);
+		},
+		get (data) {
+			this.ishow = data;
+			console.log('父get',this.ishow);
+		}
 	}
 }
 </script>
 <style lang="scss">
     #home {
-        font-size: 20px;
+        font-size: 14px;
+		position: relative;
     }
 	.head {
 		display: flex;
@@ -66,13 +77,6 @@ export default {
 			display: flex;
 			justify-content: space-around;
 		}
-	}
-	.menued {
-		position: fixed;
-		z-index: 99;
-		width: 3.75rem;
-		height: 6.67rem;
-		background: rgba(0,0,0,0.3);
 	}
 </style>
 
