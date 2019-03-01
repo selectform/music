@@ -90,13 +90,13 @@ export default {
 		left: 0;
 		top: 0;
 		width: 100%;
-		min-height: 6.67rem;
+		height: 6.67rem;
+		overflow-y: auto;
 		background: rgba(0,0,0,0.4);
 		
 	}
 	.menu1 {
-		width: 80%;
-		height: 6.67rem;
+		width: 3rem;
 		background: #fff;
 	}
 	.abs-enter {//进入
