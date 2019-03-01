@@ -6,13 +6,13 @@
 			<i class="iconfont">&#xe74c;</i>
 		</span>
 		<div>
-			<router-link to="/">
-				<i class="iconfont">&#xe67a;</i>
+			<router-link to="/local">
+				<i class="iconfont">&#xe61f;</i>
 			</router-link>
-			<router-link to="/">
-				<i class="iconfont">&#xe661;</i>
+			<router-link to="/linec">
+				<i class="iconfont">&#xe617;</i>
 			</router-link>
-			<router-link to="/">
+			<router-link to="/videor">
 				<i class="iconfont">&#xe61e;</i>
 			</router-link>
 		</div>
@@ -21,6 +21,9 @@
 		</span>
 	</header>
 	<div>
+		<router-view></router-view>
+	</div>
+	<div><!--侧栏菜单---->
 		<transition name="abs">
 			<div class="menu" @click.self="offMenu" v-show="ishow">
 				<div class="menu1">
@@ -29,6 +32,7 @@
 			</div>
 		</transition>
 	</div>
+	
 	
 </div> 
 </template>
@@ -46,12 +50,10 @@ export default {
 	},
 	methods: {
 		menut() {
-			console.log('开');
 			this.ishow = true;
 		},
 		offMenu() {
 			this.ishow = false;
-			console.log('关');
 		}
 	}
 }
@@ -118,4 +120,3 @@ export default {
 		transition: all 0.8s;
 	}
 </style>
-
