@@ -18,21 +18,22 @@ export default new VueRouter({
 			name: 'home',
 			meta: '首页',
 			component: Home,
+			redirect: '/home/lineC',
 			children: [
 				{
-					path: '/local',
+					path: 'local',
 					name: 'local',
 					component: LocaL,
 					meta: '本地'
 				},
 				{
-					path: '/linec',
+					path: 'linec',
 					name: 'linec',
 					component: LineC,
 					meta: '线上'
 				},
 				{
-					path: '/videor',
+					path: 'videor',
 					name: 'videor',
 					component: VideoR,
 					meta: '视频右'

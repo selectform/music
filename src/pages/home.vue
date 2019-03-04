@@ -6,13 +6,13 @@
 			<i class="iconfont">&#xe74c;</i>
 		</span>
 		<div>
-			<router-link to="/local">
+			<router-link to="/home/local">
 				<i class="iconfont">&#xe61f;</i>
 			</router-link>
-			<router-link to="/linec">
+			<router-link to="/home/lineC">
 				<i class="iconfont">&#xe617;</i>
 			</router-link>
-			<router-link to="/videor">
+			<router-link to="/home/videor">
 				<i class="iconfont">&#xe61e;</i>
 			</router-link>
 		</div>
@@ -70,7 +70,7 @@ export default {
 		height: 0.4rem;
 		line-height: 0.4rem;
 		i {
-			color: #fff;
+			color: #E5AA3B;
 			font-size: 20px;
 		}
 		& > span {
@@ -83,6 +83,12 @@ export default {
 			height: 100%;
 			display: flex;
 			justify-content: space-around;
+		}
+	}
+	.head .router-link-active {
+		color: #fff;
+		i {
+			color: #fff;
 		}
 	}
 	// 菜单样式
