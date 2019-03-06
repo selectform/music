@@ -2,11 +2,11 @@
 	<div>
 		<div class="slider">
 			<div class="tui1">{{aa}}</div>
-			<mu-carousel hide-controls>
+			<mu-carousel transition="fade" interval="3000">	
 				<mu-carousel-item>
 					<img :src="carouselImg1">
 				</mu-carousel-item>
-				<!-- <mu-carousel-item>
+				<mu-carousel-item>
 					<img :src="carouselImg2">
 				</mu-carousel-item>
 				<mu-carousel-item>
@@ -14,7 +14,7 @@
 				</mu-carousel-item>
 				<mu-carousel-item>
 					<img :src="carouselImg4">
-				</mu-carousel-item> -->
+				</mu-carousel-item>
 				</mu-carousel>
 		</div>
 	</div>
@@ -22,17 +22,17 @@
 
 <script>
 import carouselImg1 from '../../../assets/images/sq.jpg';
-// import carouselImg2 from '../../../assets/images/sq.jpg';
-// import carouselImg3 from '../../../assets/images/sq.jpg';
-// import carouselImg4 from '../../../assets/images/sq.jpg';
+import carouselImg2 from '../../../assets/images/sq1.jpg';
+import carouselImg3 from '../../../assets/images/sq2.jpg';
+import carouselImg4 from '../../../assets/images/sq3.jpg';
 export default {
 	name: 'recommend',
 	data() {
 		return {
 			carouselImg1,
-			// carouselImg2,
-			// carouselImg3,
-			// carouselImg4,
+			carouselImg2,
+			carouselImg3,
+			carouselImg4,
 			aa: '精彩推荐'	
 		}
 	}
@@ -52,5 +52,8 @@ export default {
 			line-height: 0.2rem;
 			color: #999;
 		}
+	}
+	.slider .mu-carousel {
+		height: 2rem;
 	}
 </style>
