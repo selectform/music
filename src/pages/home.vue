@@ -5,23 +5,22 @@
 		<span @click="menut">
 			<i class="iconfont">&#xe74c;</i>
 		</span>
-		<div>
-			<router-link to="/home/local">
-				<i class="iconfont">&#xe61f;</i>
-			</router-link>
-			<router-link to="/home/lineC">
-				<i class="iconfont">&#xe617;</i>
-			</router-link>
-			<router-link to="/home/videor">
-				<i class="iconfont">&#xe61e;</i>
-			</router-link>
-		</div>
+		<mu-button flat @click="gotop1('locaL')">
+			<i class="iconfont">&#xe61f;</i>
+		</mu-button>
+		<mu-button flat @click="gotop1('lineC')">
+			<i class="iconfont">&#xe617;</i>
+		</mu-button>
+		<mu-button flat @click="gotop1('videoR')">
+			<i class="iconfont">&#xe61e;</i>
+		</mu-button>
 		<span>
 			<i class="iconfont">&#xe62c;</i>
 		</span>
 	</header>
 	<div>
-		<router-view></router-view>
+		<!-- <router-view></router-view> -->
+		<components :is="istemp"></components>
 	</div>
 	<div><!--侧栏菜单---->
 		<transition name="abs">
@@ -37,15 +36,22 @@
 </div> 
 </template>
 <script>
+import LocaL from '../pages/locaLeft/locaL.vue';
+import LineC from '../pages/lineCentre/lineC.vue';
+import VideoR from '../pages/videoRirght/videoR.vue';
 import Menus from './menu/index.vue';
 export default {
     name: 'home',
     data() {
         return {
-            ishow: false
+            ishow: false,
+			istemp: 'lineC'
         }
     },
 	components: {
+		'locaL': LocaL,
+		'lineC': LineC,
+		'videoR': VideoR,
 		'menus': Menus
 	},
 	methods: {
@@ -54,6 +60,10 @@ export default {
 		},
 		offMenu() {
 			this.ishow = false;
+		},
+		gotop1(data) {
+			//顶部组件切换
+			this.istemp = data;
 		}
 	}
 }
@@ -79,7 +89,7 @@ export default {
 			text-align: center;
 		}
 		div {
-			width: 60%;
+			// width: 60%;
 			height: 100%;
 			display: flex;
 			justify-content: space-around;
