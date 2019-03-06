@@ -167,4 +167,7 @@ export default {
 		}
 	}
 	}
+	.slider .mu-carousel {
+		height: 2rem;
+	}
 </style>
