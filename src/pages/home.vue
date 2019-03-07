@@ -31,7 +31,9 @@
 			</div>
 		</transition>
 	</div>
-	
+	<div class="player">
+		<player></player>
+	</div>
 	
 </div> 
 </template>
@@ -40,6 +42,7 @@ import LocaL from '../pages/locaLeft/locaL.vue';
 import LineC from '../pages/lineCentre/lineC.vue';
 import VideoR from '../pages/videoRirght/videoR.vue';
 import Menus from './menu/index.vue';
+import player from '../components/player/player.vue';
 export default {
     name: 'home',
     data() {
@@ -52,7 +55,8 @@ export default {
 		'locaL': LocaL,
 		'lineC': LineC,
 		'videoR': VideoR,
-		'menus': Menus
+		'menus': Menus,
+		player
 	},
 	methods: {
 		menut() {
@@ -134,5 +138,15 @@ export default {
 	}
 	.abs-leave-active {
 		transition: all 0.8s;
+	}
+	//播放器
+	.player .aplayer {
+		width: 100%;
+		height: 0.66rem;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: 50;
+		margin: 0;
 	}
 </style>
