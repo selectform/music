@@ -76,11 +76,11 @@ export default {
 	.head {
 		display: flex;
 		justify-content: space-between;
-		background: #E5473B;
+		background: red;
 		height: 0.4rem;
 		line-height: 0.4rem;
 		i {
-			color: #E5AA3B;
+			color: white;
 			font-size: 20px;
 		}
 		& > span {
@@ -103,12 +103,12 @@ export default {
 	}
 	// 菜单样式
 	.menu {
-		position: absolute;
+		position: fixed;
 		z-index: 99;
 		left: 0;
 		top: 0;
 		width: 100%;
-		height: 6.67rem;
+		height:100%;
 		overflow-y: auto;
 		background: rgba(0,0,0,0.4);
 		

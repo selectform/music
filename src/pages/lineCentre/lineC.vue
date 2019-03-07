@@ -50,7 +50,7 @@ export default {
 	.linUl {
 		height: 0.3rem;
 		width: 100%;
-		background: #E5473B;
+		background: red;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
@@ -60,8 +60,9 @@ export default {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			color: white;
 			a {
-				color: #BFBFBF;
+				color: white;
 				border-bottom: 2px solid #444;
 				padding-bottom: 2px;
 			}
