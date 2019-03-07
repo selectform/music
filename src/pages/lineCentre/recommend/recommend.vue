@@ -1,5 +1,9 @@
 <template><!----推荐-------->
 	<div class="slihead">
+<mu-paper :z-depth="1" class="demo-loadmore-wrap">
+  <mu-container ref="container" class="demo-loadmore-content" id="target">
+    <mu-load-more @refresh="refresh" :refreshing="refreshing" :loading="loading" @load="load">
+		 <mu-list>
 		<div class="slider">
 			<div class="tui1">{{aa}}</div>
 			<mu-carousel hide-controls>
@@ -22,14 +26,21 @@
 		</div>
 		<div class="slider">
 			<div class="tui1">{{cc}}</div>
-			<div class="newsong" v-for="goz in gozs" :key="goz.id" >
-				<div>
-					<div>{{goz.titl}}<span>{{goz.titlz}}</span></div>
-					<div><span v-show="goz.ping==''?false:true">{{goz.ping}}</span>{{goz.name}}</div>
-				</div>
-				<div><i class="iconfont">&#xe685;</i></div>
-			</div>
+			<template v-for="i in num">
+					<div class="newsong" v-for="goz in gozs" :key="goz.id" >
+						<div>
+							<div>{{goz.titl}}<span>{{goz.titlz}}</span></div>
+							<div><span v-show="goz.ping==''?false:true">{{goz.ping}}</span>{{goz.name}}</div>
+						</div>
+						<div><i class="iconfont">&#xe685;</i></div>
+					</div>
+			</template>
 		</div>
+      </mu-list>
+    </mu-load-more>
+  </mu-container>
+   <button id="test"  style="position:fixed;right:0;bottom:0">回到顶部</button>
+</mu-paper>
 	</div>
 </template>
 
@@ -41,6 +52,9 @@ export default {
 			aa: '精彩推荐',	
 			bb: '推荐歌单',
 			cc: '最新音乐',
+			num:1,
+			 refreshing: false,
+			 loading: false,
 			items: [
 				{id: '1',image: require('../../../assets/images/sq.jpg')},
 				{id: '2',image: require('../../../assets/images/timg.jpg')},
@@ -60,21 +74,32 @@ export default {
 				{id: '2',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:""},
 				{id: '3',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:"HQ"},
 				{id: '4',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:"SQ"},
-				{id: '5',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:"HQ"},
-				{id: '6',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:""},
-				{id: '7',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:"HQ"},
-				{id: '8',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:"SQ"},
-				{id: '9',titl:"蜂鸟",titlz:"welcome to beijing",name:"吴青峰 -蜂鸟",ping:""},
 			],
 		}
-	}
+	},
+	 methods: {
+		refresh () {
+		this.refreshing = true;
+		setTimeout(() => {
+			this.refreshing = false;
+			this.num = 1;
+		}, 2000)
+		},
+		load () {
+		this.loading = true;
+		setTimeout(() => {
+			this.loading = false;
+			this.num += 1;
+		}, 2000)
+		},
+  },
 }
 </script>
 
 <style lang="scss">
 .slihead{
 	background: white;
-	min-height: 10rem;
+	min-height: 6rem;
 	.slider{
 		width: 100%;
 		min-height: 2.6rem;
@@ -170,4 +195,18 @@ export default {
 	.slider .mu-carousel {
 		height: 2rem;
 	}
+.demo-loadmore-wrap {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  .mu-appbar {
+    width: 100%;
+  }
+}
+.demo-loadmore-content {
+  min-height: 6rem;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
 </style>
