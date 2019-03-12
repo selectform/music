@@ -1,10 +1,7 @@
 <template>
 	<div id="player">
-		<aplayer :music="{
-			title: aaa,
-			src: 'http://m8.music.126.net/20190307152234/48c33d1da1450acf383061c3061cb382/ymusic/59c5/8f95/298d/11d842f39fb503bb9b29c37ad4080a14.mp3'
-		}">
-		</aplayer>
+		<!-- <aplayer :music="miusic" theme="#b7daff">
+		</aplayer> -->
 	</div>
 </template>
 
@@ -15,8 +12,12 @@ export default {
 	data() {
 		return {
 			a: '播放器',
-			aaa: '歌曲名字',
-			url: 'http://m8.music.126.net/20190307152234/48c33d1da1450acf383061c3061cb382/ymusic/59c5/8f95/298d/11d842f39fb503bb9b29c37ad4080a14.mp3'
+			miusic: {
+				src: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.mp3',
+				pic: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.jpg',
+				artist: 'Silent Siren',
+				title: 'M'
+			}
 		}
 	},
 	components: {
