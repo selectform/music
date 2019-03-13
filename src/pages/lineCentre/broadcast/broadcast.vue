@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { plist, pdetail } from '@/components/base/dress.js';
+import { plist } from '@/components/base/dress.js';
 export default {
 	name: 'broadcast',
 	data() {

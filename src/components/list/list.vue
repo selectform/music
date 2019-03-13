@@ -26,26 +26,32 @@
 		</div>
 		<!-- <mu-button @click="list">测试接口</mu-button> -->
 		<ul class="songlist">
-			<li v-for="(item,index) in lists" :key="item.id">
-				<p>
+			<li v-for="(item,index) in lists" @click="aplay(item)" :key="item.id">
+				<p :title="item.name">
 					<b>{{index + 1}}</b>
 					<span>{{item.name}}</span>
 				</p>
-				<i class="iconfont">&#xe679;</i>
+				<i class="iconfont icon-diandiandianshu"></i>
 			</li>
 		</ul>
+		<div>
+			<audio :src="mp3url" controls="controls">
+				你的浏览器不支持该音乐插件，渣渣！
+			</audio>
+		</div>
 	</div>
 </template>
 
 <script>
-import { pdetail } from '@/components/base/dress.js';
+import { pdetail, songs } from '@/components/base/dress.js';
 export default {
 	name: 'list',
 	data() {
 		return{
 			listM: '',//列表信息
 			listN: [],//列表数据
-			lists: []//页面列表
+			lists: [],//页面列表
+			mp3url: '111'
 		}
 	},
 	created() {
@@ -63,11 +69,24 @@ export default {
 				// console.log(this.listN);
 				this.lists = this.listN.splice(0,10);
 			}).catch(err => {
-				console.log(err);
+			    console.log(err);
 			});
 		},
 		goback() {//返回
 			this.$router.go(-1);
+		},
+		aplay(item) {
+			console.log('具体的歌曲',item);
+			songs({
+				id: item.id
+			}).then(res => {
+				let url = res.data.data[0];
+				this.mp3url = url.url;
+				console.log(this.mp3url);
+				
+			}).catch(err => {
+				console.log(err);
+			})
 		}
 	}
 }
@@ -112,8 +131,8 @@ export default {
 		background: rgba(0,0,0,0.5);
 		& > p:first-child {
 			font-size: 0.18rem;
-			 line-height: 0.34rem;
-			 height: 0.34rem;
+			line-height: 0.34rem;
+			height: 0.34rem;
 			i {
 				padding: 0 0.1rem;
 			}
@@ -152,6 +171,13 @@ export default {
 		}
 		i {
 			padding: 0 0.06rem;
+		}
+		p {
+			font-size: 14px;
+			width: 80%;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
 		}
 	}
 </style>
