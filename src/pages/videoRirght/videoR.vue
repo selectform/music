@@ -1,8 +1,12 @@
 <template>
-	<div>视频右</div>
+	<div>
+		<div>视频右12641</div>
+		
+	</div>
 </template>
 
 <script>
+
 export default {
 	name: 'videoR',
 	data() {
@@ -10,6 +14,7 @@ export default {
 			
 		}
 	}
+	
 }
 </script>
 
